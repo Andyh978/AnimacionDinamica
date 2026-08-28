@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arte en Canvas</title>
+
+    <style>
+        canvas {
+            border: 3px solid brown;
+            background-color: white;
+        }
+    </style>
+
+    <script>
+        function dibujar() {
+
+            var canvas = document.getElementById("micanvas");
+            var context = canvas.getContext("2d");
+
+            context.fillStyle = "yellow";
+
+            // Punta superior
+            context.fillRect(450, 50, 100, 50);
+
+            // Parte superior
+            context.fillRect(400, 100, 200, 50);
+
+            // Parte media
+            context.fillRect(350, 150, 300, 50);
+
+            // Brazos de la estrella
+            context.fillRect(300, 200, 400, 100);
+
+            // Punta izquierda
+            context.fillRect(250, 200, 50, 50);
+
+            // Punta derecha
+            context.fillRect(700, 200, 50, 50);
+
+            // Parte inferior
+            context.fillRect(350, 300, 300, 50);
+
+            // Punta inferior izquierda
+            context.fillRect(400, 350, 100, 50);
+            context.fillRect(400, 400, 50, 50);
+
+            // Punta inferior derecha
+            context.fillRect(500, 350, 100, 50);
+            context.fillRect(550, 400, 50, 50);
+
+            // Ojos
+            context.fillStyle = "black";
+            context.fillRect(420, 200, 20, 50);
+            context.fillRect(560, 200, 20, 50);
+
+        }
+
+        window.onload = dibujar;
+    </script>
+
+</head>
+
+<body>
+
+    <canvas id="micanvas" width="1000" height="600"></canvas>
+
+</body>
+
+</html>
