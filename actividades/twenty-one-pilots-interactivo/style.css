@@ -1,0 +1,41 @@
+
+body {
+    margin: 0;
+    background-color: #b71c1c;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Logo animado */
+.logo-animado {
+    position: fixed;
+    top: 20px;
+    width: 100px;
+    height: auto;
+
+    animation: moverLogo 6s linear infinite;
+}
+
+@keyframes moverLogo {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -120px;
+    }
+}
+
+/* Canvas */
+canvas {
+    display: block;
+    margin: 100px auto 20px auto;
+    background-color: white;
+}
+
+/* Instrucciones */
+aside {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}

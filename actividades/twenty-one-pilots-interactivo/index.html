@@ -1,0 +1,278 @@
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twenty One Pilots - 8 Eras</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <img src="images/logo.png" class="logo-animado" alt="Twenty One Pilots">
+
+    <canvas id="canvas" width="1000" height="700"></canvas>
+
+    <aside>
+      Presiona una tecla: A, S, D, F, G, H, J o K
+    </aside>
+
+    <script src="keycodes.js"></script>
+
+    <script>
+      window.onload = function () {
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var imagen = new Image();
+
+        // Posición general
+        var centro = 500;
+
+
+        // Texto inicial
+        context.font = '30px Arial';
+        context.fillStyle = 'black';
+        context.textAlign = 'center';
+        context.fillText('TWENTY ONE PILOTS', centro, 100);
+
+        context.font = '20px Arial';
+        context.fillText('Presiona una tecla para comenzar', centro, 140);
+
+
+        function onKeyboardEvent(event) {
+
+          switch (event.keyCode) {
+
+
+            // A - Self-Titled
+            case keycode.A:
+
+              imagen.src = "images/selftitled.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Twenty One Pilots', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2009', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Álbum debut de la banda.', centro, 480);
+                context.fillText('También conocido como Self-Titled.', centro, 510);
+              };
+
+              break;
+
+
+            // S - Regional at Best
+            case keycode.S:
+
+              imagen.src = "images/regionalatbest.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Regional at Best', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2011', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Segundo álbum de estudio de', centro, 480);
+                context.fillText('Twenty One Pilots.', centro, 510);
+              };
+
+              break;
+
+
+            // D - Vessel
+            case keycode.D:
+
+              imagen.src = "images/vessel.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Vessel', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2013', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Tercer álbum de estudio.', centro, 480);
+                context.fillText('Canción destacada: Car Radio', centro, 510);
+              };
+
+              break;
+
+
+            // F - Blurryface
+            case keycode.F:
+
+              imagen.src = "images/blurryface.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Blurryface', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2015', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Cuarto álbum de estudio.', centro, 480);
+                context.fillText('Canción destacada: Stressed Out', centro, 510);
+              };
+
+              break;
+
+
+            // G - Trench
+            case keycode.G:
+
+              imagen.src = "images/trench.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Trench', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2018', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Quinto álbum de estudio.', centro, 480);
+                context.fillText('Canción destacada: Chlorine', centro, 510);
+              };
+
+              break;
+
+
+            // H - Scaled and Icy
+            case keycode.H:
+
+              imagen.src = "images/scaledandicy.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Scaled and Icy', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2021', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Sexto álbum de estudio.', centro, 480);
+                context.fillText('Canción destacada: Shy Away', centro, 510);
+              };
+
+              break;
+
+
+            // J - Clancy
+            case keycode.J:
+
+              imagen.src = "images/clancy.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Clancy', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2024', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Séptimo álbum de estudio.', centro, 480);
+                context.fillText('Canción destacada: Overcompensate', centro, 510);
+              };
+
+              break;
+
+
+            // K - Breach
+            case keycode.K:
+
+              imagen.src = "images/breach.jpg";
+
+              imagen.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.drawImage(imagen, 350, 40, 300, 300);
+
+                context.textAlign = 'center';
+
+                context.font = '35px Arial';
+                context.fillStyle = 'black';
+                context.fillText('Breach', centro, 400);
+
+                context.font = '22px Arial';
+                context.fillText('2025', centro, 435);
+
+                context.font = '18px Arial';
+                context.fillText('Octavo álbum de estudio.', centro, 480);
+                context.fillText('El capítulo más reciente de la historia.', centro, 510);
+              };
+
+              break;
+
+
+            default:
+              console.log(event.keyCode);
+
+          }
+        }
+
+        window.addEventListener('keydown', onKeyboardEvent, false);
+
+      };
+    </script>
+
+  </body>
+</html>
+```
