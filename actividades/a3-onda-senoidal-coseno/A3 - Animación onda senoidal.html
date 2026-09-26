@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>A3 - Animación onda senoidal/coseno</title>
+
+    <style>
+        body {
+            background-color: rgb(235, 183, 255);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>A3 - Animación con onda senoidal/coseno</h1>
+
+    <canvas id="canvas" width="1000" height="700"></canvas>
+
+    <script>
+
+        window.onload = function () {
+
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                fondo = new Image(),
+                nave = new Image(),
+                angle = 0,
+                centerX = canvas.width / 2,
+                centerY = canvas.height / 2,
+                radius = 200,
+                speed = 0.02;
+
+            fondo.src = "fondo.png";
+            nave.src = "nave.png";
+
+
+            (function drawFrame () {
+
+                window.requestAnimationFrame(drawFrame, canvas);
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Dibujar fondo
+                context.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+
+
+                // Movimiento circular con seno y coseno
+                var xpos = centerX + Math.sin(angle) * radius;
+                var ypos = centerY + Math.cos(angle) * radius;
+
+
+                // Cambiar escala
+                var scale = 1 + Math.sin(angle) * 0.3;
+
+
+                angle += speed;
+
+
+                // Dibujar imagen
+                context.save();
+
+                context.translate(xpos, ypos);
+
+                context.scale(scale, scale);
+
+                context.drawImage(
+                    nave,
+                    -nave.width / 2,
+                    -nave.height / 2
+                );
+
+                context.restore();
+
+            }());
+
+        };
+
+    </script>
+
+</body>
+
+</html>
