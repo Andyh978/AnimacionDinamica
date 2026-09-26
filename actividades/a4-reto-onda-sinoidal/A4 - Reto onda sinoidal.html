@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>A4 - Reto onda sinoidal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background-image: url("fondozanahoria.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Chewy", cursive;
+            font-size: 48px;
+            color: white;
+
+            text-shadow:
+                3px 3px 0px #ff8c32,
+                6px 6px 0px #6ba84f;
+
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        canvas {
+            border: 5px solid white;
+            border-radius: 20px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>A4 - Conejito Saltarín</h1>
+
+    <canvas id="canvas" width="1000" height="700"></canvas>
+
+    <script>
+
+        window.onload = function () {
+
+            var canvas = document.getElementById("canvas"),
+                context = canvas.getContext("2d"),
+
+                fondo = new Image(),
+                conejo = new Image(),
+
+                angle = 0,
+                centerY = 500,
+                range = 120,
+                speed = 0.08,
+                xspeed = 4,
+
+                xpos = 100;
+
+            fondo.src = "fondocampo.png";
+            conejo.src = "fondoconejo.png";
+
+
+            (function drawFrame() {
+
+                window.requestAnimationFrame(drawFrame, canvas);
+
+                context.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+
+                // Dibujar fondo
+                context.drawImage(
+                    fondo,
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+
+                // Movimiento horizontal
+                xpos += xspeed;
+
+
+                // Movimiento vertical con onda senoidal
+                var ypos =
+                    centerY + Math.sin(angle) * range;
+
+
+                // Rebote en los bordes
+                if (
+                    xpos >= canvas.width - conejo.width / 2 ||
+                    xpos <= conejo.width / 2
+                ) {
+                    xspeed *= -1;
+                }
+
+
+                // Velocidad de la onda
+                angle += speed;
+
+
+                // Dibujar conejo
+                context.save();
+
+                context.translate(xpos, ypos);
+
+                context.drawImage(
+                    conejo,
+                    -conejo.width / 2,
+                    -conejo.height / 2
+                );
+
+                context.restore();
+
+
+            }());
+
+        };
+
+    </script>
+
+</body>
+
+</html>
