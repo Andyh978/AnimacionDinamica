@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A5 - Dibujo de figuras en el Canvas</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        canvas {
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>A5 - Dibujo de figuras en el Canvas</h1>
+
+    <canvas id="canvas" width="900" height="600"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.lineWidth = 3;
+        context.strokeStyle = "black";
+
+
+        // =========================
+        // CASITA
+        // =========================
+
+        // Cuerpo
+        context.beginPath();
+        context.fillStyle = "#E9C89B";
+        context.strokeStyle = "black";
+
+        context.moveTo(80, 180);
+        context.lineTo(80, 300);
+        context.lineTo(230, 300);
+        context.lineTo(230, 180);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Chimenea
+        context.beginPath();
+        context.fillStyle = "#9C6644";
+
+        context.moveTo(190, 115);
+        context.lineTo(215, 115);
+        context.lineTo(215, 170);
+        context.lineTo(190, 150);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Techo
+        context.beginPath();
+        context.fillStyle = "#BC4749";
+
+        context.moveTo(55, 185);
+        context.lineTo(155, 95);
+        context.lineTo(255, 185);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Puerta
+        context.beginPath();
+        context.fillStyle = "#6F4518";
+
+        context.moveTo(135, 300);
+        context.lineTo(135, 245);
+
+        context.quadraticCurveTo(
+            155, 220,
+            175, 245
+        );
+
+        context.lineTo(175, 300);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Perilla
+        context.beginPath();
+        context.fillStyle = "#FFD166";
+
+        context.arc(
+            165,
+            265,
+            4,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+
+        // Ventana - UNA SOLA
+        context.beginPath();
+        context.fillStyle = "#A8DADC";
+        context.strokeStyle = "black";
+
+        context.moveTo(190, 215);
+        context.lineTo(220, 215);
+        context.lineTo(220, 245);
+        context.lineTo(190, 245);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Camino
+        context.beginPath();
+        context.fillStyle = "#B7B7A4";
+
+        context.moveTo(135, 300);
+        context.lineTo(175, 300);
+        context.lineTo(195, 325);
+        context.lineTo(115, 325);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+
+        // =========================
+        // HONGUITO
+        // =========================
+
+        // Tallo
+        context.beginPath();
+        context.fillStyle = "#F4E1C1";
+        context.strokeStyle = "black";
+
+        context.moveTo(345, 195);
+
+        context.quadraticCurveTo(
+            350, 225,
+            340, 275
+        );
+
+        context.quadraticCurveTo(
+            370, 300,
+            400, 275
+        );
+
+        context.quadraticCurveTo(
+            390, 225,
+            395, 195
+        );
+
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Sombrero
+        context.beginPath();
+        context.fillStyle = "#E63946";
+
+        context.moveTo(305, 195);
+
+        context.quadraticCurveTo(
+            370, 85,
+            435, 195
+        );
+
+        context.quadraticCurveTo(
+            370, 215,
+            305, 195
+        );
+
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Manchas
+        context.beginPath();
+        context.fillStyle = "white";
+        context.arc(340, 165, 12, 0, Math.PI * 2);
+        context.fill();
+
+        context.beginPath();
+        context.arc(375, 135, 15, 0, Math.PI * 2);
+        context.fill();
+
+        context.beginPath();
+        context.arc(410, 170, 10, 0, Math.PI * 2);
+        context.fill();
+
+        context.beginPath();
+        context.arc(375, 185, 7, 0, Math.PI * 2);
+        context.fill();
+
+
+
+        // =========================
+        // ESTRELLA
+        // =========================
+
+        context.beginPath();
+        context.fillStyle = "#FFD60A";
+        context.strokeStyle = "black";
+
+        context.moveTo(590, 105);
+        context.lineTo(610, 160);
+        context.lineTo(670, 160);
+        context.lineTo(620, 195);
+        context.lineTo(640, 255);
+        context.lineTo(590, 220);
+        context.lineTo(540, 255);
+        context.lineTo(560, 195);
+        context.lineTo(510, 160);
+        context.lineTo(570, 160);
+
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+
+        // =========================
+        // LUNA
+        // =========================
+
+        // Círculo amarillo
+        context.beginPath();
+        context.fillStyle = "#FFD60A";
+        context.strokeStyle = "black";
+
+        context.arc(
+            155,
+            440,
+            70,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+        context.stroke();
+
+
+        // Círculo blanco encima
+        context.beginPath();
+        context.fillStyle = "white";
+
+        context.arc(
+            190,
+            415,
+            70,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+
+
+        // =========================
+        // FIGURA LIBRE - BOMBA
+        // =========================
+
+        // Cuerpo
+        context.beginPath();
+        context.fillStyle = "#252525";
+        context.strokeStyle = "black";
+        context.lineWidth = 3;
+
+        context.arc(
+            390,
+            465,
+            60,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+        context.stroke();
+
+
+        // Parte superior
+        context.beginPath();
+        context.fillStyle = "#555555";
+
+        context.moveTo(415, 415);
+        context.lineTo(435, 395);
+        context.lineTo(455, 415);
+        context.lineTo(435, 435);
+        context.closePath();
+
+        context.fill();
+        context.stroke();
+
+
+        // Mecha
+        context.beginPath();
+        context.strokeStyle = "#8B5A2B";
+        context.lineWidth = 7;
+
+        context.moveTo(435, 400);
+
+        context.quadraticCurveTo(
+            460, 365,
+            490, 375
+        );
+
+        context.stroke();
+
+
+        // Chispa
+        context.beginPath();
+        context.strokeStyle = "#F4A261";
+        context.lineWidth = 5;
+
+        context.moveTo(490, 375);
+        context.lineTo(505, 355);
+
+        context.moveTo(490, 375);
+        context.lineTo(515, 375);
+
+        context.moveTo(490, 375);
+        context.lineTo(505, 395);
+
+        context.moveTo(490, 375);
+        context.lineTo(485, 350);
+
+        context.stroke();
+
+
+        // Centro de la chispa
+        context.beginPath();
+        context.fillStyle = "#FFD60A";
+
+        context.arc(
+            490,
+            375,
+            8,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+
+    </script>
+
+</body>
+
+</html>
