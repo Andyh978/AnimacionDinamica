@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>A8 - Nave personalizada</title>
+
+    <style>
+        body {
+            background-color: #10172D;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        canvas {
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Nave espacial</h1>
+
+    <canvas id="canvas" width="1000" height="700"></canvas>
+
+    <p>Usa las flechas izquierda y derecha para girar y la flecha arriba para acelerar.</p>
+
+    <script>
+        window.onload = function () {
+
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+
+                nave = new Image(),
+                fondo = new Image(),
+
+                x = canvas.width / 2,
+                y = canvas.height / 2,
+
+                rotation = -Math.PI / 2,
+                vr = 0,
+                vx = 0,
+                vy = 0,
+                thrust = 0,
+                friction = 0.97,
+
+                anchoNave = 68,
+                altoNave = 127;
+
+            nave.src = "naveespacio.png";
+            fondo.src = "fondoespacio.png";
+
+            var teclas = {};
+
+            window.addEventListener('keydown', function (event) {
+                if ([37, 38, 39].includes(event.keyCode)) {
+                    event.preventDefault();
+                }
+
+                teclas[event.keyCode] = true;
+            });
+
+            window.addEventListener('keyup', function (event) {
+                teclas[event.keyCode] = false;
+            });
+
+            window.addEventListener('blur', function () {
+                teclas = {};
+            });
+
+            function drawFrame() {
+
+                window.requestAnimationFrame(drawFrame);
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Dibujar fondo
+                if (fondo.complete && fondo.naturalWidth > 0) {
+                    context.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+                }
+
+                // Controles de la nave
+                vr = 0;
+                thrust = 0;
+
+                if (teclas[37]) {
+                    vr = -3;
+                }
+
+                if (teclas[39]) {
+                    vr = 3;
+                }
+
+                if (teclas[38]) {
+                    thrust = 0.15;
+                }
+
+                // Rotación y aceleración
+                rotation += vr * Math.PI / 180;
+
+                var angle = rotation,
+                    ax = Math.cos(angle) * thrust,
+                    ay = Math.sin(angle) * thrust;
+
+                vx += ax;
+                vy += ay;
+
+                // Fricción
+                vx *= friction;
+                vy *= friction;
+
+                // Movimiento
+                x += vx;
+                y += vy;
+
+                // Límites: screen wrapping
+                // Radio de seguridad para cubrir la nave al girar
+                var radioNave = Math.sqrt(
+                    anchoNave * anchoNave +
+                    altoNave * altoNave
+                ) / 2;
+
+                if (x - radioNave > canvas.width) {
+                    x = -radioNave;
+                } else if (x + radioNave < 0) {
+                    x = canvas.width + radioNave;
+                }
+
+                if (y - radioNave > canvas.height) {
+                    y = -radioNave;
+                } else if (y + radioNave < 0) {
+                    y = canvas.height + radioNave;
+                }
+
+                // Dibujar nave
+                if (nave.complete && nave.naturalWidth > 0) {
+                    context.save();
+
+                    context.translate(x, y);
+                    context.rotate(rotation + Math.PI / 2);
+
+                    context.drawImage(
+                        nave,
+                        -anchoNave / 2,
+                        -altoNave / 2,
+                        anchoNave,
+                        altoNave
+                    );
+
+                    context.restore();
+                }
+            }
+
+            drawFrame();
+        };
+    </script>
+
+</body>
+</html>
+
