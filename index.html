@@ -1,29 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animación Dinámica</title>
 
     <style>
 
         body {
-            background-color: lightblue;
-            text-align: center;
+            background-color: white;
             font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 30px;
         }
 
         h1 {
-            color: darkblue;
+            font-size: 36px;
+            color: #244b80;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .gato {
+            width: 180px;
+            height: auto;
+            margin-top: 15px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
         }
 
         h2 {
-            color: black;
+            font-size: 24px;
+            color: #244b80;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        a {
-            font-size: 20px;
-            color: darkred;
+        .actividades {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .actividad {
+            background-color: #f7f9fc;
+            border: 1px solid #dce3ed;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .actividad:hover {
+            background-color: #edf3fc;
+            border-color: #8aadd8;
+        }
+
+        .actividad h3 {
+            font-size: 14px;
+            color: #777;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .actividad a {
+            color: #244b80;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .actividad a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            padding: 35px 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .actividades {
+                grid-template-columns: 1fr;
+            }
         }
 
     </style>
@@ -31,83 +105,120 @@
 
 <body>
 
-    <h1>Animación Dinámica</h1>
+    <header>
+        <h1>Animación Dinámica</h1>
 
-    <img src="gatomagico.jpg" alt="Gato mágico">
+        <p>Portafolio de actividades del semestre</p>
 
-    <p>Actividades de la materia</p>
+        <img src="GatoSorprendido.png"
+             alt="Gato sorprendido"
+             class="gato">
+    </header>
 
-    <h2>Actividad 1</h2>
-    <a href="actividades/a1/golden-globes.html">
-        Golden Globes
-    </a>
+    <main>
 
-    <h2>Actividad 2</h2>
-    <a href="actividades/a2/pagina-basica.html">
-        Página HTML básica
-    </a>
+        <h2>Mis actividades y proyectos</h2>
 
-    <h2>Actividad 4</h2>
-    <a href="actividades/a4/arte-canvas.html">
-        Arte en Canvas
-    </a>
+        <div class="actividades">
 
-    <br>
+            <div class="actividad">
+                <h3>Actividad 1</h3>
+                <a href="actividades/a1/golden-globes.html">
+                    Golden Globes
+                </a>
+            </div>
 
-    <a href="actividades/a4/animacion-canvas.html">
-        Animación en Canvas
-    </a>
+            <div class="actividad">
+                <h3>Actividad 2</h3>
+                <a href="actividades/a2/pagina-basica.html">
+                    Página HTML básica
+                </a>
+            </div>
 
-    <h2>Part 2</h2>
-    <a href="actividades/participacion2/reto-canvas.html">
-        Reto Canvas
-    </a>
+            <div class="actividad">
+                <h3>Actividad 4</h3>
+                <a href="actividades/a4/animacion-canvas.html">
+                    Animación en Canvas
+                </a>
+            </div>
 
-    <h2>Proyecto - Interactivo con el teclado</h2>
-    <a href="actividades/twenty-one-pilots-interactivo/index.html">
-        Interactivo Twenty One Pilots
-    </a>
+            <div class="actividad">
+                <h3>Part 2</h3>
+                <a href="actividades/participacion2/reto-canvas.html">
+                    Reto Canvas
+                </a>
+            </div>
 
-    <h2>A2 - Animación rotación al mouse</h2>
-    <a href="actividades/a2-rotacion-mouse/rotacion-mouse.html">
-        Gira el láser
-    </a>
+            <div class="actividad">
+                <h3>Proyecto - Interactivo con el teclado</h3>
+                <a href="actividades/twenty-one-pilots-interactivo/index.html">
+                    Interactivo Twenty One Pilots
+                </a>
+            </div>
 
-    <h2>A3 - Animación con onda senoidal/coseno</h2>
-    <a href="actividades/a3-onda-senoidal-coseno/A3 - Animación onda senoidal.html">
-        Animación onda senoidal
-    </a>
+            <div class="actividad">
+                <h3>A2 - Animación rotación al mouse</h3>
+                <a href="actividades/a2-rotacion-mouse/rotacion-mouse.html">
+                    Gira el láser
+                </a>
+            </div>
 
-    <h2>A4 - Reto onda sinoidal</h2>
-    <a href="actividades/a4-reto-onda-sinoidal/A4 - Reto onda sinoidal.html">
-        Conejito Saltarín
-    </a>
+            <div class="actividad">
+                <h3>A3 - Animación con onda senoidal/coseno</h3>
+                <a href="actividades/a3-onda-senoidal-coseno/A3 - Animación onda senoidal.html">
+                    Animación onda senoidal
+                </a>
+            </div>
 
-    <h2>A5 - Dibujo de figuras en el canvas</h2>
-    <a href="actividades/a5-dibujo-figuras-canvas/A5 - Dibujo de figuras en el canvas (25-sep).html">
-        Dibujo de figuras en el canvas
-    </a>
+            <div class="actividad">
+                <h3>A4 - Reto onda sinoidal</h3>
+                <a href="actividades/a4-reto-onda-sinoidal/A4 - Reto onda sinoidal.html">
+                    Conejito Saltarín
+                </a>
+            </div>
 
-    <h2>A6 - Paint App personalizado</h2>
-    <a href="actividades/a6-paint-app-personalizado/a6-paint-app.html">
-        Paint App
-    </a>
+            <div class="actividad">
+                <h3>A5 - Dibujo de figuras en el Canvas</h3>
+                <a href="actividades/a5-dibujo-figuras-canvas/A5 - Dibujo de figuras en el canvas (25-sep).html">
+                    Dibujo de figuras en el Canvas
+                </a>
+            </div>
 
-    <h2>A7 - Simulación de reloj</h2>
-    <a href="actividades/a7-simulacion-reloj/a7-reloj.html">
-        Simulación de reloj
-    </a>
+            <div class="actividad">
+                <h3>A6 - Paint App personalizado</h3>
+                <a href="actividades/a6-paint-app-personalizado/a6-paint-app.html">
+                    Paint App
+                </a>
+            </div>
 
-    <h2>A8 - Nave personalizada (límites y fricción)</h2>
-    <a href="actividades/a8/nave.html">
-        Nave espacial
-    </a>
+            <div class="actividad">
+                <h3>A7 - Simulación de reloj</h3>
+                <a href="actividades/a7-simulacion-reloj/a7-reloj.html">
+                    Simulación de reloj
+                </a>
+            </div>
 
-    <h2>A2 - Modelo 3D en el model-viewer (23-oct)</h2>
-<a href="actividades/a9-modelo-3d/index.html">
-    Casa de Hongos 3D
-</a>
+            <div class="actividad">
+                <h3>A8 - Nave personalizada (límites y fricción)</h3>
+                <a href="actividades/a8/nave.html">
+                    Nave espacial
+                </a>
+            </div>
+
+            <div class="actividad">
+                <h3>A2 - Modelo 3D en el model-viewer (23-oct)</h3>
+                <a href="actividades/a9-modelo-3d/index.html">
+                    Casa de Hongos 3D
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Animación Dinámica | Portafolio 2026</p>
+    </footer>
 
 </body>
-
 </html>
